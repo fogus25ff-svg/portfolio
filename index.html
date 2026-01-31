@@ -3,122 +3,194 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IT Portfolio</title>
+<title>Teachable Machine Web</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0;font-family:Arial}
-body{background:#faf7ff;color:#333}
-section{padding:60px 10%}
-h2{text-align:center;margin-bottom:30px;color:#6a3fbf}
-.card{background:white;border-radius:15px;padding:25px;box-shadow:0 4px 10px rgba(0,0,0,.1);margin-bottom:25px}
-header{background:linear-gradient(135deg,#7b4fd6,#c7b6ff);color:white;padding:80px 10%;text-align:center}
-.avatar{
-    width:130px;
-    height:130px;
-    border-radius:50%;
-    background:white;
-    margin:auto;
-    margin-bottom:15px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:50px;color:#7b4fd6;
-    background-image: url(data:image/jpeg;base64,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)
+*{
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
 }
 
-table{width:100%;border-collapse:collapse}
-th,td{border:1px solid #ddd;padding:10px;text-align:center}
-th{background:#e6dcff}
+body{
+  margin:0;
+  background:#f4f6f9;
+}
 
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+nav{
+  display:flex;
+  justify-content:center;
+  background:#222;
+}
 
-.fade{opacity:0;transform:translateY(40px);transition:1s}
-.fade.show{opacity:1;transform:none}
+nav button{
+  border:none;
+  background:none;
+  color:white;
+  padding:15px 25px;
+  cursor:pointer;
+  font-size:16px;
+}
 
-footer{text-align:center;padding:30px;background:#6a3fbf;color:white}
+nav button.active{
+  background:#4CAF50;
+}
+
+.page{
+  display:none;
+  min-height:calc(100vh - 50px);
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:20px;
+}
+
+.page.active{
+  display:flex;
+}
+
+.box{
+  background:white;
+  padding:30px;
+  border-radius:10px;
+  box-shadow:0 0 10px rgba(0,0,0,.1);
+  width:100%;
+  max-width:400px;
+}
+
+label{
+  cursor:pointer;
+  background:#4CAF50;
+  color:white;
+  padding:10px 20px;
+  border-radius:6px;
+  display:inline-block;
+}
 
 @media(max-width:600px){
-section{padding:40px 6%}
+  .box{
+    padding:20px;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<header>
-<div class="avatar"></div>
-<h1>Miss Nichaphat Pinya</h1>
-<p>IT Student Portfolio</p>
-</header>
+<nav>
+<button class="active" onclick="openTab('home',this)">Home</button>
+<button onclick="openTab('check',this)">Check</button>
+<button onclick="openTab('about',this)">About Us</button>
+</nav>
 
-<section class="fade">
-<h2>👤 ประวัติส่วนตัว | Personal Info</h2>
-<div class="card">
-<p><b>ชื่อ:</b> นางสาวณิชาภัทร ปิ่นยะ</p>
-<p><b>โรงเรียน:</b> บุญวาทย์วิทยาลัย</p>
-<p><b>แผนการเรียน:</b> GIFTED COMPUTER</p>
-<p><b>GPA:</b> 3.40</p>
-</div>
-</section>
+<!-- HOME -->
+<div id="home" class="page active">
+  <div class="box">
+    <h2>Home</h2>
+<p><strong>AI Image Classification Web Application</strong></p>
 
-<section class="fade">
-<h2>💻 Skills & Programming</h2>
-<div class="card">
-<table>
-<tr><th>Skill</th><th>Description</th><th>Level</th></tr>
-<tr><td>HTML / CSS</td><td>Basic Website</td><td>Basic</td></tr>
-<tr><td>Python</td><td>Programming / Data</td><td>Basic–Medium</td></tr>
-<tr><td>Excel</td><td>Formula / Graph / Cleaning</td><td>Medium</td></tr>
-<tr><td>PowerPoint / Canva</td><td>Presentation Design</td><td>Medium</td></tr>
-<tr><td>Power BI</td><td>Dashboard</td><td>Basic</td></tr>
-</table>
-</div>
-</section>
-
-<section class="fade">
-<h2>📂 Projects</h2>
-<div class="grid">
-<div class="card">Project A<br>Learning: dkig-upoFxicdi,</div>
-<div class="card">Project B<br>Learning: dkig-upoFxicdi,</div>
-<div class="card">Project C<br>Learning: dkig-upoFxicdi,</div>
-<div class="card">Project D<br>Learning: dkig-upoFxicdi,</div>
-<div class="card">Project E<br>Learning: dkig-upoFxicdi,</div>
-</div>
-</section>
-
-<section class="fade">
-<h2>🎓 Training Experience</h2>
-<div class="card">
-<ul>
-<li>Computer Game Camp</li>
-<li>Programming Camp</li>
-</ul>
-</div>
-</section>
-
-<section class="fade">
-<h2>🔥 Inspiration & Goal</h2>
-<div class="card">
 <p>
-ดิฉันมีความตั้งใจที่จะศึกษาต่อในสาขาเทคโนโลยีสารสนเทศ เพื่อพัฒนาความรู้และทักษะด้านเทคโนโลยีให้สามารถนำไปประยุกต์ใช้ได้จริง  
-I aim to study Information Technology to develop skills and create innovations that improve people's lives.
+เว็บไซต์นี้ถูกพัฒนาขึ้นเพื่อสาธิตการใช้งาน Machine Learning 
+ผ่าน Teachable Machine โดยผู้ใช้สามารถอัปโหลดภาพ 
+และระบบจะวิเคราะห์ประเภทของภาพโดยอัตโนมัติ
 </p>
-</div>
-</section>
 
-<footer>
-IT Portfolio © 2026
-</footer>
+<p>
+เหมาะสำหรับการเรียนรู้พื้นฐานด้าน AI, Image Recognition 
+และการพัฒนาเว็บไซต์แบบ Responsive
+</p>
+    <p>Welcome to Teachable Machine Website</p>
+  </div>
+</div>
+
+<!-- CHECK -->
+<div id="check" class="page">
+  <div class="box">
+    <h2>Image Classification</h2>
+
+    <label for="imageUpload">เลือกภาพ</label>
+    <input id="imageUpload" type="file" accept="image/*" onchange="loadImage(event)" hidden>
+
+    <img id="hiddenImg" hidden>
+
+    <div id="label-container" style="margin-top:20px;font-size:18px;"></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div id="about" class="page">
+  <div class="box">
+   <h2>About Us</h2>
+
+<p>
+โครงการนี้เป็นส่วนหนึ่งของการศึกษาในรายวิชาที่เกี่ยวข้องกับ
+เทคโนโลยีสารสนเทศและปัญญาประดิษฐ์
+</p>
+
+<p>
+วัตถุประสงค์ของเว็บไซต์:
+</p>
+
+<ul style="text-align:left;">
+<li>เพื่อเรียนรู้การใช้งาน Teachable Machine</li>
+<li>เพื่อฝึกพัฒนาเว็บไซต์แบบ Responsive</li>
+<li>เพื่อเข้าใจการทำงานของ Image Classification</li>
+</ul>
+
+<p>
+พัฒนาโดยนักศึกษาด้านเทคโนโลยีสารสนเทศ
+</p>
+    <p>Responsive Website + Teachable Machine Demo</p>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
 
 <script>
-const fades=document.querySelectorAll(".fade");
-window.addEventListener("scroll",()=>{
-fades.forEach(f=>{
-const top=f.getBoundingClientRect().top;
-if(top<window.innerHeight-100){f.classList.add("show")}
-})
-});
+function openTab(id,btn){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+
+  document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+// ===== Teachable Machine =====
+
+const URL = "https://teachablemachine.withgoogle.com/models/da-tyzkA3e/";
+let model;
+
+window.onload = async ()=>{
+  model = await tmImage.load(URL+"model.json", URL+"metadata.json");
+};
+
+function loadImage(event){
+  const reader = new FileReader();
+
+  reader.onload = ()=>{
+    const img = document.getElementById("hiddenImg");
+    img.src = reader.result;
+    img.onload = ()=>predict(img);
+  };
+
+  reader.readAsDataURL(event.target.files[0]);
+}
+
+async function predict(img){
+  const prediction = await model.predict(img);
+
+  let best = prediction[0];
+  for(let i=1;i<prediction.length;i++){
+    if(prediction[i].probability > best.probability){
+      best = prediction[i];
+    }
+  }
+
+  document.getElementById("label-container").innerHTML =
+    best.className + " : " + best.probability.toFixed(2);
+}
 </script>
 
 </body>
 </html>
+
